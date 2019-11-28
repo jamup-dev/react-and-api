@@ -44,10 +44,13 @@ export default function Signin({ history }) {
         })
         .catch(e => {
           // could be due to network error or authentication error
-          console.log(e.response);
           // it is authentication error if we have response.data and
           // response.data.success === false
-          if (e.response.data && e.response.data.success === false) {
+          if (
+            e.response &&
+            e.response.data &&
+            e.response.data.success === false
+          ) {
             alert(e.response.data.message);
           } else {
             alert(e);
